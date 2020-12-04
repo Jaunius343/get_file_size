@@ -1,0 +1,14 @@
+long get_file_size(char *fileName)
+{
+    FILE *myFile;
+    myFile = fopen (fileName, "r");
+    int length;
+    if(myFile != NULL){
+        fseek(myFile, 0, SEEK_END);
+        length = ftell(myFile);
+        fclose(myFile);
+        return length;
+    } else {
+        return -1;
+    }
+}
